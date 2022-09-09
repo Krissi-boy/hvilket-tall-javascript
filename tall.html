@@ -13,7 +13,7 @@
         <button id="button">Button</button>
         <h1>Choose Correct number</h1>
         <input type="number" id="input">
-        
+        <h2></h2>
         
     </div>
 
@@ -24,6 +24,8 @@
         var autonumber = Math.floor(Math.random() * 100) + 1;
         var button = document.querySelector("#button");
         var input = document.querySelector("#input")
+        var attempts = 10
+        var feedback = document.querySelector("#feedback")
         
         function sjekkTall(e) {
             console.log(input.value)
@@ -33,13 +35,24 @@
             console.log(e-type);
             var input = autonumber;
             console.log(input.id);
-
-            if (input.value === autonumber) {
-                console.log();
         
-            }
 
-        }
+            if (input.value == autonumber) {
+                console.log("Riktig"); 
+                feedback.innerHTML = "Riktig";
+            } else if (input.value < autonumber) {
+                console.log("For lavt")
+                feedback.innerHTML = "For lavt";
+                attempts = attempts - 1
+            } else if (input.value > autonumber) {
+                console.log("For høyt")
+                feedback.innerHTML = "For høyt";
+                attempts = attempts - 1
+            } else  {
+                console.log("Noe gikk galt"); 
+            } 
+
+         }//slutt sjekktall funksjon
         
         button.addEventListener("click", sjekkTall)
        
