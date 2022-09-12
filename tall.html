@@ -10,54 +10,82 @@
 </head>
 <body>
     <div>
-        <button id="button">Button</button>
-        <h1>Choose Correct number</h1>
+        <button id="button">ACCEPT NUMBER SELECTIONS</button>
+        <button id="startover">STARTOVER</button>
+        <h1>Choose Correct Number</h1>
         <input type="number" id="input">
-        <h2></h2>
+        <h2 id="feedback"></h2>
         
     </div>
 
 <img src="coin.jpg">
 
 <div class="Guess_box"></div> 
+
+
+
     <script> 
         var autonumber = Math.floor(Math.random() * 100) + 1;
         var button = document.querySelector("#button");
         var input = document.querySelector("#input")
         var attempts = 10
         var feedback = document.querySelector("#feedback")
+        var startover_EL = document.querySelector("#startover")
         
-        function sjekkTall(e) {
+
+
+
+        function sjekkTall() {
             console.log(input.value)
             console.log(autonumber);
             console.log(button);
-            console.log(e-target);
-            console.log(e-type);
-            var input = autonumber;
             console.log(input.id);
         
 
             if (input.value == autonumber) {
                 console.log("Riktig"); 
                 feedback.innerHTML = "Riktig";
+                check_attempts()
             } else if (input.value < autonumber) {
                 console.log("For lavt")
                 feedback.innerHTML = "For lavt";
                 attempts = attempts - 1
+                check_attempts()
             } else if (input.value > autonumber) {
                 console.log("For høyt")
                 feedback.innerHTML = "For høyt";
                 attempts = attempts - 1
+                check_attempts()
             } else  {
-                console.log("Noe gikk galt"); 
+                console.log("Noe gikk galt");
+                check_attempts() 
             } 
 
          }//slutt sjekktall funksjon
+
+
+        function startover() {
+        console.log("startover");
+        attempts = 5;
+        score = 0;
+        random_num = Math.floor(Math.random() * 100) + 1;
+        playing = true;
+        }
         
+
+        function check_attempts() {
+        if (attempts <= 0) {
+        feedback.innerHTML = "Ingen forsøk igjen. Restart.";
+        playing = false;
+     }
+     }
+
+
         button.addEventListener("click", sjekkTall)
+        startover_EL.addEventListener("click", startover)
        
 
     </script>
 
 </body>
-</html>
+</html> 

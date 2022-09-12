@@ -10,3 +10,7 @@ image {
     background-position: center;
     background-size: cover;
 }
+
+h1 {
+    size-adjust: 300px;
+}
