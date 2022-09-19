@@ -15,7 +15,7 @@
         <h1>Choose Correct Number</h1>
         <input type="number" id="input">
         <h2 id="feedback"></h2>
-        <input type="prize" id="prize"
+        <input type="prize" id="prize">
         
     </div>
 
@@ -32,7 +32,7 @@
         var attempts = 10
         var feedback = document.querySelector("#feedback")
         var startover_EL = document.querySelector("#startover")
-        var prize = document.querySelector("#prize")
+        var prize_EL = document.querySelector("#prize")
         var prize = 5000
 
 
@@ -80,7 +80,7 @@
         console.log("startover_EL");
         attempts = 5;
         score = 0;
-        random_num = Math.floor(Math.random() * 100) + 1;
+        autonumber = Math.floor(Math.random() * 100) + 1;
         playing = true;
         }
         
@@ -90,16 +90,19 @@
         feedback.innerHTML = "Ingen forsøk igjen. Restart.";
         playing = false;
         console.log("prize") = 0
-     }
+
+        if (autonumber == prize_EL) 
+        console.log("5000")
+        feedback.innerHTML = "5000"
+     }     
      }
 
-
+      
         button.addEventListener("click", sjekkTall)
         startover_EL.addEventListener("click", startover)
-        prize.addEventListener("")
        
 
     </script>
 
-</body>
+</body>       
 </html> 
