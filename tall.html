@@ -15,6 +15,7 @@
         <h1>Choose Correct Number</h1>
         <input type="number" id="input">
         <h2 id="feedback"></h2>
+        <input type="prize" id="prize"
         
     </div>
 
@@ -31,15 +32,18 @@
         var attempts = 10
         var feedback = document.querySelector("#feedback")
         var startover_EL = document.querySelector("#startover")
-        
+        var prize = document.querySelector("#prize")
+        var prize = 5000
+
 
 
 
         function sjekkTall() {
-            console.log(input.value)
+            console.log(input.value);
             console.log(autonumber);
             console.log(button);
             console.log(input.id);
+            console.log(prize)
         
 
             if (input.value == autonumber) {
@@ -63,9 +67,17 @@
 
          }//slutt sjekktall funksjon
 
+        
+         function prize() {
+                console.log(prize);
+
+            }
+
+
+
 
         function startover() {
-        console.log("startover");
+        console.log("startover_EL");
         attempts = 5;
         score = 0;
         random_num = Math.floor(Math.random() * 100) + 1;
@@ -77,12 +89,14 @@
         if (attempts <= 0) {
         feedback.innerHTML = "Ingen forsøk igjen. Restart.";
         playing = false;
+        console.log("prize") = 0
      }
      }
 
 
         button.addEventListener("click", sjekkTall)
         startover_EL.addEventListener("click", startover)
+        prize.addEventListener("")
        
 
     </script>
